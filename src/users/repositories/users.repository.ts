@@ -1,12 +1,9 @@
+import { Injectable } from "@nestjs/common";
 import { User } from "../entities/users.entity";
 import { Repository } from 'typeorm';
+import { InjectRepository } from "@nestjs/typeorm";
 
-export class UserRepository extends Repository<User>  {
+@Injectable()
+export class UserRepository {
 
-    public async createUser(data: Partial<User>): Promise<User> {
-        console.log('data', data)
-        console.log(this)
-        const newUser = this.create(data)
-        return this.save(newUser)
-    }
-}
+}  
