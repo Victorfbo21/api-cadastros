@@ -27,4 +27,8 @@ export class UsersService {
             return this.defaultUsersRepository.save(newUser)
         }
     }
+
+    async getUsers() {
+        return this.defaultUsersRepository.find()
+    }
 }

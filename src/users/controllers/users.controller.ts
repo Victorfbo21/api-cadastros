@@ -10,4 +10,9 @@ export class UsersController {
     async insertUser(@Body() user: User): Promise<any> {
         return this.userService.insertUser(user);
     }
+
+    @Get('/list')
+    async getUsers() {
+        return this.userService.getUsers();
+    }
 }
