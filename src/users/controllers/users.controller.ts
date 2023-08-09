@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Put, Post } from '@nestjs/common';
+import { Body, Controller, Get, Put, Post, Query, Patch } from '@nestjs/common';
 import { UsersService } from '../services/users.service';
 import { User } from '../entities/users.entity';
 @Controller('/users')
@@ -14,5 +14,10 @@ export class UsersController {
     @Get('/list')
     async getUsers() {
         return this.userService.getUsers();
+    }
+
+    @Patch('/update')
+    async updateUser(@Query() id: number, @Body() newData: Partial<User>) {
+        return this.userService.updateUser(id, newData)
     }
 }
