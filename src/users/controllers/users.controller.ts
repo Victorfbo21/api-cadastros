@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Put, Post, Query, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Put, Post, Query, Patch, Delete } from '@nestjs/common';
 import { UsersService } from '../services/users.service';
 import { User } from '../entities/users.entity';
 @Controller('/users')
@@ -20,4 +20,10 @@ export class UsersController {
     async updateUser(@Query() id: number, @Body() newData: Partial<User>) {
         return this.userService.updateUser(id, newData)
     }
+
+    @Delete('/delete')
+    async deleteUser(@Query() id: number) {
+        return this.userService.deleteUser(id)
+    }
+
 }

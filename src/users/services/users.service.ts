@@ -45,4 +45,17 @@ export class UsersService {
             console.log("err", err)
         }
     }
+
+    async deleteUser(id: number) {
+        try {
+            const userDeleted = await this.defaultUsersRepository.delete(id)
+            if (userDeleted) {
+                console.log("Usuário Deletado com Sucesso !!")
+                return userDeleted
+            }
+        }
+        catch (err) {
+            console.log("err", err)
+        }
+    }
 }
