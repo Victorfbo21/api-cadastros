@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserRepository } from '../repositories/users.repository';
 import { User } from '../entities/users.entity';
-
+import encodePassword from 'src/Utils/encodePassword';
 @Injectable()
 export class UsersService {
     private UserRepository;
@@ -24,6 +24,8 @@ export class UsersService {
         else {
             const newUser = this.defaultUsersRepository.create(user)
             console.log("Usuário Cadastrado com Sucesso !")
+            newUser.password = encodePassword(newUser.password)
+            console.log(newUser)
             return this.defaultUsersRepository.save(newUser)
         }
     }

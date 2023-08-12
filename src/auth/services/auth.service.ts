@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { TokenService } from './token.service';
 import { User } from '../../users/entities/users.entity';
 import { LoginRequest } from '../interfaces/auth-login.request.interface';
-
+import encodePassword from 'src/Utils/encodePassword';
 @Injectable()
 export class AuthServices {
     constructor(
@@ -13,8 +13,7 @@ export class AuthServices {
         private tokenService: TokenService
     ) { }
     async login(data: LoginRequest) {
-        const user = await this.userRepository.findOneBy({ email: data.email, password: data.password })
-
+        const user = await this.userRepository.findOneBy({ email: data.email, password: encodePassword(data.password) })
         if (user) {
             const auth = await this.tokenService.getToken(user.id, "user")
             return { user, auth }
