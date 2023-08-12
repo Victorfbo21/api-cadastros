@@ -32,7 +32,7 @@ export class UsersService {
         return this.defaultUsersRepository.find()
     }
 
-    async updateUser(id: number, newDate: Partial<User>) {
+    async updateUser(id: string, newDate: Partial<User>) {
         try {
             const findUsertoUpdate = await this.defaultUsersRepository.findBy({ id: id })
             if (findUsertoUpdate) {

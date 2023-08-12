@@ -17,7 +17,7 @@ export class UsersController {
     }
 
     @Patch('/update')
-    async updateUser(@Query() id: number, @Body() newData: Partial<User>) {
+    async updateUser(@Query() id: string, @Body() newData: Partial<User>) {
         return this.userService.updateUser(id, newData)
     }
 

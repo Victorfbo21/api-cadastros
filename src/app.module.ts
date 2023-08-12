@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UsersModule } from './users/modules/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/modules/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -18,8 +17,9 @@ import { ConfigModule } from '@nestjs/config';
       synchronize: (process.env.DB_SYNCHRONIZE === 'true'),
     }),
     UsersModule,
+    AuthModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule { }
