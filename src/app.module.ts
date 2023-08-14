@@ -3,6 +3,7 @@ import { UsersModule } from './users/modules/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/modules/auth.module';
+import { StaffModule } from './staff/modules/staff.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -17,7 +18,8 @@ import { AuthModule } from './auth/modules/auth.module';
       synchronize: (process.env.DB_SYNCHRONIZE === 'true'),
     }),
     UsersModule,
-    AuthModule
+    AuthModule,
+    StaffModule
   ],
   controllers: [],
   providers: [],
