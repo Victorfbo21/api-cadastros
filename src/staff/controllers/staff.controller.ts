@@ -8,7 +8,7 @@ export class StaffController {
     ) { }
 
     @Put('/create')
-    async insertStaff(@Body() staff: Staff): Promise<any> {
+    async insertStaff(@Body() staff: Staff): Promise<Staff> {
         return this.staffService.insertStaff(staff);
     }
 

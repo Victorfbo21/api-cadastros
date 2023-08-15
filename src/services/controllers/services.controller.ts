@@ -8,7 +8,7 @@ export class ServicesController {
     ) { }
 
     @Put('/create')
-    async insertService(@Body() service: Service): Promise<any> {
+    async insertService(@Body() service: Service): Promise<Service> {
         return this.servicesService.insertService(service);
     }
 

@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/modules/auth.module';
 import { StaffModule } from './staff/modules/staff.module';
 import { ServicesModule } from './services/modules/services.module';
+import { CustomersModule } from './customers/modules/customers.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -21,7 +22,8 @@ import { ServicesModule } from './services/modules/services.module';
     UsersModule,
     AuthModule,
     StaffModule,
-    ServicesModule
+    ServicesModule,
+    CustomersModule
   ],
   controllers: [],
   providers: [],
