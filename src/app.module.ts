@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/modules/auth.module';
 import { StaffModule } from './staff/modules/staff.module';
+import { ServicesModule } from './services/modules/services.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -19,7 +20,8 @@ import { StaffModule } from './staff/modules/staff.module';
     }),
     UsersModule,
     AuthModule,
-    StaffModule
+    StaffModule,
+    ServicesModule
   ],
   controllers: [],
   providers: [],
