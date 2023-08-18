@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { Service } from 'src/services/entities/services.entity';
 @Entity()
 export class Staff {
@@ -15,5 +15,4 @@ export class Staff {
     @ManyToOne(() => Service, (Service) => Service.id)
     @JoinColumn({ name: 'servico_id' })
     servico: Service;
-
 }

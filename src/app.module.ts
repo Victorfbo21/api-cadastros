@@ -6,6 +6,7 @@ import { AuthModule } from './auth/modules/auth.module';
 import { StaffModule } from './staff/modules/staff.module';
 import { ServicesModule } from './services/modules/services.module';
 import { CustomersModule } from './customers/modules/customers.module';
+import { CustomerServiceModule } from './customer-service/modules/customer-service.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -23,7 +24,8 @@ import { CustomersModule } from './customers/modules/customers.module';
     AuthModule,
     StaffModule,
     ServicesModule,
-    CustomersModule
+    CustomersModule,
+    CustomerServiceModule
   ],
   controllers: [],
   providers: [],
