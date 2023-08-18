@@ -1,9 +1,9 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import encodePassword from 'src/Utils/encodePassword';
 import { CustomerService } from '../entities/customer-service.entity';
 import { CustomerServiceRepository } from '../repositories/customer-service.repository';
+import formatarData from 'src/Utils/formatDate';
 @Injectable()
 export class CustomerServiceService {
     private CustomerServiceRepository;
